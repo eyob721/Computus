@@ -1,0 +1,24 @@
+:root {
+  --primary_color: #f4ca10;
+  --secondary_color: #ffec99;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary_color);
+}
+
+select > option {
+  background-color: var(--secondary_color);
+}
