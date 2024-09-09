@@ -42,6 +42,20 @@ h1 {
   margin-bottom: 10px;
   text-align: center;
 }
-* {
-  /* border: 1px solid red; */
+
+#output-container {
+  margin-top: 20px;
+  background-color: var(--secondary_color);
+  border-radius: 20px;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
