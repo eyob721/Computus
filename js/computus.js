@@ -117,7 +117,7 @@ function getEthiopianEvents (year, mebagaHamer) {
 
   const leapYear = ameteAlem % 4 === 0;
   const staticEvents = [
-    { name: 'የዘመነ መለወጫ ቀነ', day: 1, month: 1 },
+    { name: 'አዲስ አመት', day: 1, month: 1 },
     { name: 'መስቀል', day: 17, month: 1 },
     { name: 'ጾም ጽጌ', day: 26, month: 1 },
     { name: 'የነቢያት ጾም', day: 15, month: 3 },
