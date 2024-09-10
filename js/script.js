@@ -60,7 +60,7 @@ function renderOutput (givenYear) {
   }
 }
 
-const currentYear = new Date().getFullYear() - 8;
+const currentYear = new Date().getFullYear() - 7;
 console.log(`ዓመተ ምህረት = ${currentYear}`);
 
 const goBtn = document.getElementById('go-button');
