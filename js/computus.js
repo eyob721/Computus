@@ -164,11 +164,7 @@ function getEthiopianEvents (year, mebagaHamer) {
 }
 
 export {
-  ameteFida,
-  awedeAbekte,
-  wengel,
   ethiopianMonths,
-  ethiopianElete,
   getElete,
   getWengel,
   getAbekete,
