@@ -1,12 +1,38 @@
-const currentYear = new Date().getFullYear() - 8;
-console.log(currentYear);
+import { ethiopianMonths, getWengel, getAbekete, getMetke, getMebagaHamer, getEthiopianEvents } from './computus.js';
 
-const yearInputElm = document.getElementById('year-input');
-yearInputElm.value = currentYear;
+// Build the output messages for all the events of the given year
+// ---------------------------------------------------------------------------
+function buildEventOutput (givenYear) {
+  const currentWengel = getWengel(givenYear);
+  console.log(`ወንጌላዊ = ${currentWengel}`);
 
-const goBtn = document.getElementById('go-button');
-const outputContainerElm = document.getElementById('output-container');
+  const currentAbekete = getAbekete(givenYear);
+  console.log(`አበቅቴ = ${currentAbekete}`);
 
+  const currentMetke = getMetke(givenYear, currentAbekete);
+  console.log(`መጥቅዕ = ${(currentMetke.day)}`);
+
+  const mebagaHamer = getMebagaHamer(currentMetke.day, currentMetke.month, currentMetke.elete);
+  const currentEvents = getEthiopianEvents(givenYear, mebagaHamer);
+
+  const eventsOutput = [
+    { name: 'ወንጌላዊ', value: currentWengel },
+    { name: 'አበቅቴ', value: currentAbekete },
+    { name: 'መጥቅዕ', value: currentMetke.day }
+  ];
+
+  for (const event of currentEvents) {
+    const eventName = event.name;
+    const eventValue = `${ethiopianMonths[event.month]} ${event.day}, ${event.elete}`;
+
+    eventsOutput.push({ name: eventName, value: eventValue });
+  }
+
+  return eventsOutput;
+}
+
+// Render the output messages to the DOM
+// ---------------------------------------------------------------------------
 function clearOutput () {
   outputContainerElm.textContent = '';
 }
@@ -26,6 +52,28 @@ function addOutputElm (name, value) {
   outputContainerElm.append(outputListItem);
 }
 
+function renderOutput (givenYear) {
+  const eventsOutput = buildEventOutput(givenYear);
+  console.log(eventsOutput);
+  for (const event of eventsOutput) {
+    addOutputElm(event.name, event.value);
+  }
+}
+
+const currentYear = new Date().getFullYear() - 8;
+console.log(`ዓመተ ምህረት = ${currentYear}`);
+
+const goBtn = document.getElementById('go-button');
+const outputContainerElm = document.getElementById('output-container');
+const yearInputElm = document.getElementById('year-input');
+
+yearInputElm.value = currentYear;
+renderOutput(currentYear);
+
 goBtn.addEventListener('click', function () {
-  addOutputElm('Name', 'Value');
+  const givenYear = parseInt(yearInputElm.value);
+  console.log(`ዓመተ ምህረት = ${givenYear}`);
+
+  clearOutput();
+  renderOutput(givenYear);
 });
