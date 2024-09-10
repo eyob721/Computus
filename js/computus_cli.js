@@ -66,7 +66,7 @@ const awedeAbekte = {
   19: 18
 };
 
-const zemen = ['ዮሐንስ', 'ማቴዎስ', 'ማርቆስ', 'ሉቃስ'];
+const wengel = ['ዮሐንስ', 'ማቴዎስ', 'ማርቆስ', 'ሉቃስ'];
 
 function getElete (day, month, year) {
   const days = [
@@ -112,6 +112,7 @@ function getMebagaHamer (metkeElete, metkeDay, metkeMonth) {
 function getEthiopianEvents (mebagaHamer) {
   const leapYear = ameteAlem % 4 === 0;
   const staticEvents = [
+    { name: 'የዘመነ መለወጫ ቀነ', day: 1, month: 1 },
     { name: 'መስቀል', day: 17, month: 1 },
     { name: 'ጾም ጽጌ', day: 26, month: 1 },
     { name: 'የነቢያት ጾም', day: 15, month: 3 },
@@ -164,12 +165,13 @@ function displayEvents (allEvents) {
     console.log(`${eventItem.name}: ${ethiopianMonths[eventItem.month]} ${eventItem.day}, ${eventItem.elete}`);
   }
 }
+
 const ameteAlem = ameteFida + currentYear;
-const yearZemen = zemen[ameteAlem % 4];
+const yearWengel = wengel[ameteAlem % 4];
 console.log('ዓመተ ምህረት = ' + currentYear + ' ዓ.ም');
 console.log('ዓመተ ዓለም = ' + ameteAlem + ' ዓ.ዓ');
 console.log('መስከረም 1 = ' + ethiopianElete[getElete(1, 1, currentYear)]);
-console.log('ዘመኑ = ' + yearZemen);
+console.log('ዘመኑ = ' + yearWengel);
 console.log();
 
 const wember = (ameteAlem % 19 === 0 ? 19 : ameteAlem % 19) - 1;
