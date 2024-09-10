@@ -107,3 +107,8 @@ li {
   padding-right: 15px;
   height: 60px;
 }
+
+footer {
+  font-size: 1.2rem;
+  align-self: center;
+}
